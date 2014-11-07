@@ -25,5 +25,4 @@ def proxy_to(request, path, target_url):
     elif request.method == 'DELETE':
         proxied_response = requests.delete(url, data=request.body, headers=headers)
 
-    print url
     return HttpResponse(proxied_response)

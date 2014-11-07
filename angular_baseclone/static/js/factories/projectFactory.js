@@ -5,7 +5,6 @@ baseclone.factory('ProjectFactory', function($http) {
             $http.get('/proxy/projects.json')
                 .success(function (response) {
                     callback(response);
-
                 }).error(function (error) {
                     console.log(error);
                 });

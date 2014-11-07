@@ -14,7 +14,6 @@ baseclone.config(['$routeProvider', function($routeProvider) {
         otherwise({redirectTo: '/'});
 }]);
 
-// Get project data every time (only used for debugging)
 //baseclone.run(function($rootScope, $http){
 //    $http.get('/proxy/projects.json').
 //        success(function(data){
