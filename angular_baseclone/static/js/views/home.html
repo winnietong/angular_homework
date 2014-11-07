@@ -1,0 +1,32 @@
+<li class="dropdown">
+    <a class="dropdown-toggle">Projects</a>
+    <ul class="dropdown-menu">
+        <li ng-repeat="project in projects">
+            <a href="#/projects/{{ project.id }}">
+                {{ project.name }}
+            </a>
+        </li>
+    </ul>
+</li>
+<welcome></welcome>
+<h2>Add a new project</h2>
+<bc-searchbar></bc-searchbar>
+<form>
+    <div>
+        Name: <input ng-model="projectName">
+    </div>
+    <div>
+        Description: <input ng-model="projectDescription">
+    </div>
+    <button ng-click="newProject();">Add a new project!</button>
+</form>
+
+<h2>All Projects</h2>
+
+<div ng-repeat="project in projects" class="col-md-3 projectTile">
+    <a href="#/projects/{{ project.id }}">
+        <h3>{{ project.name }}</h3>
+        <div>{{ project.description }}</div>
+    </a>
+</div>
+

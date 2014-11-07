@@ -1,0 +1,49 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <!-- Vendor Files -->
+    <script src="{% static "js/vendors/jquery.js" %}"></script>
+    <!------- Angular ------->
+    <script src="{% static "js/vendors/angular/angular.js" %}"></script>
+    <script src="{% static "js/vendors/angular/angular-resource.js" %}"></script>
+    <script src="{% static "js/vendors/angular/angular-route.js" %}"></script>
+    <script src="{% static "js/vendors/angular/angular-sanitize.js" %}"></script>
+    <script src="{% static "js/vendors/angular/angular-animate.js" %}"></script>
+
+    <!------- Bootstrap ------->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="{% static "js/vendors/ui-bootstrap-tpls-0.10.0.min.js" %}"></script>
+
+    <!-- JavaScript -->
+    <script src="{% static "js/app.js" %}"></script>
+    <script src="{% static "js/directives/directives.js" %}"></script>
+
+    <!------- Resources ------->
+    <script src="{% static "js/factories/commentResource.js" %}"></script>
+    <script src="{% static "js/factories/todoListResource.js" %}"></script>
+    <script src="{% static "js/factories/projectFactory.js" %}"></script>
+
+    <!------- Controllers ------->
+    <script src="{% static "js/controllers/homeController.js" %}"></script>
+    <script src="{% static "js/controllers/discussionController.js" %}"></script>
+    <script src="{% static "js/controllers/projectController.js" %}"></script>
+    <script src="{% static "js/controllers/todoController.js" %}"></script>
+    <script src="{% static "js/controllers/todoListController.js" %}"></script>
+    <script src="{% static "js/controllers/calendarEventController.js" %}"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+    <link rel="stylesheet" href="{% static "css/animations.css" %}">
+
+</head>
+<body>
+    <div ng-app="baseclone">
+        <a href="/"><h1>Baseclone, the greatest AngularJS project of all time.</h1></a>
+        <div projectpanel class="panel panel-primary"></div>
+        <div class="container" ng-view></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<li class="dropdown">
+    <a class="dropdown-toggle">Projects</a>
+    <ul class="dropdown-menu">
+        <li ng-repeat="project in projects">
+            <a href="#/projects/{{ project.id }}">
+                {{ project.name }}
+            </a>
+        </li>
+    </ul>
+</li>
+<welcome></welcome>
+<h2>
+    {{ project.name }}
+</h2>
+<p>
+    {{ project.description }}
+</p>
+<div>
+    <p>These are all topics, which is a container of sorts for objects that can comments (e.g., Messages, To Do Lists, Calendar Events)</p>
+    <h3>
+        All Discussions:
+    </h3>
+    <bc-searchbar></bc-searchbar>
+    <button ng-click="linkToSearch();">Copy To Clipboard</button>
+
+    <accordion-group heading="{{ topic.topicable.type }} | {{ topic.title }}" ng-repeat="topic in topics | filter:searchText | filter:hasAttachment">
+        <div ng-switch on="topic.topicable.type">
+            <a ng-switch-when="Message" href="#/projects/{{ project.id }}/discussion/{{ topic.topicable.id }}">
+                <div>
+                    <p>{{ topic.excerpt }}</p>
+                </div>
+            </a>
+            <a ng-switch-when="Todo" href="#/projects/{{ project.id }}/todo/{{ topic.topicable.id }}">
+                <div>
+                    <p>{{ topic.excerpt }}</p>
+                </div>
+            </a>
+            <a ng-switch-when="CalendarEvent" href="#/projects/{{ project.id }}/calendar_event/{{ topic.topicable.id }}">
+                <div>
+                    <p>{{ topic.excerpt }}</p>
+                </div>
+            </a>
+        </div>
+    </accordion-group>
+
+    <!-- Let's simplify and show this all in the discussion list above
+    <h3>
+        Messages:
+    </h3>
+    <div ng-repeat="topic in topics | topicTypeFilter:'Message'">
+        <a href="#/projects/{{ project.id }}/discussion/{{ topic.topicable.id }}">
+            <p>{{ topic.title }}</p>
+        </a>
+    </div>
+    <h3>
+        Calendar Events:
+    </h3>
+    <div ng-repeat="topic in topics | topicTypeFilter:'CalendarEvent'">
+        {{ topic.title }}
+    </div>
+-->
+</div>
